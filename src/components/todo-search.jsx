@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { TodoContext } from '../state/TodoContext';
+import { TodoContext } from '../state/todoContext';
 import { Input, Box } from '@chakra-ui/react';
 
 function Search() {

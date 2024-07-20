@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/App.css';
 import './index.css';
 import App from './App';
-import { TodoProvider } from './state/TodoContext';
+import { TodoProvider } from './state/todoContext';
 
 ReactDOM.render(
   <React.StrictMode>
