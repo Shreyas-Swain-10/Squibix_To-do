@@ -4,7 +4,7 @@
 This repository contains a real-time chat application built with Next.js and Socket.io, inspired by Discord. Designed to offer a modern and intuitive user experience, this application enables seamless real-time communication with various features.
 
 
-## 📥 Installation
+## 📥 Setup Instructions
 
 #### 1. Clone the repository:
 ```bash
