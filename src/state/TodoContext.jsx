@@ -6,16 +6,15 @@ export const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
   const { todos, addTodo, updateTodo, deleteTodo, toggleComplete, searchTodos, filterTodos } = useTodos();
-  const [state, dispatch] = useReducer(todoReducer, []);
+  const [state, dispatch] = useReducer(todoReducer, todos);
 
   useEffect(() => {
     dispatch({ type: 'SET_TODOS', payload: todos });
   }, [todos]);
 
   const handleAddTodo = (todo) => {
-    const todoWithId = { ...todo, id: Date.now() }; // Generate unique ID using timestamp
-    dispatch({ type: 'ADD_TODO', payload: todoWithId });
-    addTodo(todoWithId);
+    dispatch({ type: 'ADD_TODO', payload: todo });
+    addTodo(todo);
   };
 
   const handleUpdateTodo = (updatedTodo) => {

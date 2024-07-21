@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { TodoContext } from '../state/todoContext';
 import { Input, Box } from '@chakra-ui/react';
 
-function Search() {
+function TodoSearch() {
   const { searchTodos } = useContext(TodoContext);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -23,4 +23,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default TodoSearch;

@@ -31,7 +31,6 @@ function TodoItem({ todo }) {
             <div className="flex space-x-2">
               <FaEdit className="cursor-pointer" onClick={() => setIsModalOpen(true)} />
               <FaTrash className="cursor-pointer" onClick={() => deleteTodo(todo.id)} />
-              <FaArrowsAlt className="cursor-pointer" />
             </div>
           </div>
         </div>

@@ -1,20 +1,24 @@
 import React, { useState, useContext } from 'react';
 import { TodoContext } from '../state/todoContext';
 
-function AddTodo() {
+const AddTodo = ({ userId }) => {
   const { addTodo } = useContext(TodoContext);
   const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
   const [type, setType] = useState('');
   const [deadline, setDeadline] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addTodo({
+      id: Date.now().toString(),
       name,
+      description,
       type,
       deadline,
       completed: false,
-      createdAt: new Date().toLocaleString(),
+      createdAt: new Date().toLocaleString('en-US', { dateStyle: 'short', timeStyle: 'short' }),
+      userId,
     });
     setName('');
     setDescription('');
@@ -23,7 +27,7 @@ function AddTodo() {
   };
 
   return (
-    <div className="w-full bg-white p-6 rounded-lg shadow-lg mb-6">
+    <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-lg mb-6">
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
@@ -32,13 +36,13 @@ function AddTodo() {
             id="name" 
             value={name} 
             onChange={(e) => setName(e.target.value)} 
-            placeholder="Title" 
+            placeholder="Name" 
             required 
             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
           />
         </div>
         <div className="flex mb-4">
-          <div className="pr-2">
+          <div className="pr-2 w-1/2">
             <label htmlFor="type" className="block text-sm font-medium text-gray-700">Type</label>
             <select 
               id="type" 
@@ -58,7 +62,7 @@ function AddTodo() {
               <option value="Miscellaneous">🔖 Miscellaneous</option>
             </select>
           </div>
-          <div className="w-1/2 pl-2">
+          <div className="pl-2 w-1/2">
             <label htmlFor="deadline" className="block text-sm font-medium text-gray-700">Deadline</label>
             <input 
               type="date" 
@@ -79,6 +83,6 @@ function AddTodo() {
       </form>
     </div>
   );
-}
+};
 
 export default AddTodo;
